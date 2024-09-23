@@ -1,18 +1,17 @@
-let mongoose=require('mongoose')
+let mongoose = require("mongoose");
 
-
-
-let EquipeSchema=new mongoose.Schema({
-
-    nom:{
-        type:String,
-        required:true,
-        unique:true
+let EquipeSchema = new mongoose.Schema({
+  nom: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  membres: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "user",
     },
-    membres:[{
-         type: mongoose.Schema.Types.ObjectId, 
-        ref: 'user'
-    }]
-})
+  ],
+});
 
-module.exports=mongoose.model('equipe',EquipeSchema)
+module.exports = mongoose.model("equipe", EquipeSchema);

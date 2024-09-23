@@ -28,7 +28,11 @@ let user = require("./models/UserModel.js");
 let UserRouter = require("./routes/UserRouter.js");
 let ClientRouter = require("./routes/ClientRouter.js");
 let UploadPhotProfil = require("./routes/UploadPhotoProfil.Routes.js");
+let UploadDocumentRouter = require("./routes/UploadDocument.Routes.js");
+
 let equipeRouter = require("./routes/Equipes.Routes.js");
+
+let ProjetRouter = require("./routes/Projet.Routes.js");
 
 // Instantiate an Express Application
 const app = express();
@@ -61,6 +65,9 @@ app.use(
   express.static(__dirname + "/upload/photo_profil")
 );
 app.use(express.static("/upload/photo_profil"));
+
+app.use("/api/upload/document", express.static(__dirname + "/upload/document"));
+app.use(express.static("/upload/document"));
 // Assign Routes
 
 app.use("/", require("./routes/router.js"));
@@ -68,6 +75,8 @@ app.use("/api", UserRouter);
 app.use("/api", ClientRouter);
 app.use("/api", UploadPhotProfil);
 app.use("/api", equipeRouter);
+app.use("/api", UploadDocumentRouter);
+app.use("/api", ProjetRouter);
 // Handle errors
 app.use(errorHandler());
 

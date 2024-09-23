@@ -9,17 +9,17 @@ let ProjetSchema = new mongoose.Schema({
   },
 
   dateDebut: {
-    type: Date,
+    type: String,
     required: true,
   },
 
   dateFin: {
-    type: Date,
+    type: String,
     required: true,
   },
 
   budget: {
-    type: String,
+    type: Number,
     required: true,
   },
 
@@ -38,5 +38,11 @@ let ProjetSchema = new mongoose.Schema({
       ref: "tache",
     },
   ],
+  etat: {
+    type: String,
+    required: true,
+    default:"En attente"
+  },
+
 });
 module.exports = mongoose.model("projet", ProjetSchema);

@@ -19,7 +19,6 @@ router.get(
   ClientCtrl.getAllClient
 );
 
-
 router.get(
   "/client/:id",
   auth.authUser,
